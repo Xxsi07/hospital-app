@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow_Login</class>
+ <widget class="QMainWindow" name="MainWindow_Login">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>512</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: white; 
+	color: black;
+	border-radius: 10px;       
+	border: 2px solid #366abf;
+}
+
+QLabel {
+color: #366abf;
+}
+
+QDateTimeEdit{
+background-color:white; 
+color: black;
+border: 2px solid #366abf;
+}
+
+QTableView{
+ border: 2px solid #366abf; /* Espessura, Estilo (solid/dashed/dotted) e Cor */
+    border-radius: 5px;       /* Cantos arredondados */
+    gridline-color: #dcdcdc;   /* Cor das linhas que separam as células */
+    background-color: white;
+    selection-background-color: lightblue; /* Cor da linha quando selecionada */
+}
+
+QLCDNumber{
+border: 2px solid #366abf;
+border-radius: 10px;
+}
+QWidget{
+background-color: white;
+
+}</string>
+   </property>
+   <widget class="QLCDNumber" name="relogioLCD">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>510</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Utilizador">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>260</y>
+      <width>111</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Utilizador :</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_Utilizador">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>290</y>
+      <width>291</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_Passe">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>340</y>
+      <width>171</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Palavra-Passe :</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_Passe">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>370</y>
+      <width>291</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Entrar">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>410</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Entrar</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_LoginTitulo">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>80</y>
+      <width>301</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>36</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Bem-Vindo!</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
