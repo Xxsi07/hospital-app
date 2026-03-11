@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS hospital_db;
+
 create DATABASE hospital_db;
 
 use hospital_db;
@@ -115,3 +117,11 @@ CREATE TABLE `mensagens` (
   FOREIGN KEY (`IdRemetente`) REFERENCES `utilizador` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`IdDestinatario`) REFERENCES `utilizador` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(1,'medico');
+INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(3,'utente');
+INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(3,'administrador');
+INSERT INTO `utilizador`(`Id`,`Username`,`Password`,`Cargos`,`Nome`,`Email`,`Telefone`,`DataCriacao`) VALUES(1,'jose','jose123',1,'José Rajão','joserajao@gmail.com','945873123','2026-03-06 05:17:44');
+INSERT INTO `utilizador`(`Id`,`Username`,`Password`,`Cargos`,`Nome`,`Email`,`Telefone`,`DataCriacao`) VALUES(2,'daniel','daniel123',2,'Daniel Magalhães','danielmagalhaes@gmail.com','983245876','2026-03-22 17:10:22');
+INSERT INTO `utilizador`(`Id`,`Username`,`Password`,`Cargos`,`Nome`,`Email`,`Telefone`,`DataCriacao`) VALUES(3,'almeida','almeida266',3,'Francisco Almeida','franciscoalmeida@gmail.com','945876324','2026-03-23 13:06:18');
+INSERT INTO `consultas`(`Id`,`Data`,`Hora`,`IdUtente`,`IdMedico`,`TipoConsulta`,`Estado`,`Observacoes`) VALUES(1,'2026-03-27','16:00:00',2,1,'Dermatologia','Marcada','Trazer as analises ao sangue ');
