@@ -67,33 +67,38 @@ class FormNovaReceita(QtWidgets.QMainWindow, Ui_FormNovaReceita):
                 QtWidgets.QMessageBox.critical(self, "Erro", "A ligação à BD não está estabelecida.")
                 return
 
-            # INSERIR a Receita Master (Mestre)
+            # Criar a receita mestre
             cmd_sql_receita = "INSERT INTO receitas(IdUtente, IdConsulta) VALUES (%s, %s);"
             res = operacao_DML(conn_BD, cmd_sql_receita, (id_utente, id_consulta))
             if res == -1:
-                QtWidgets.QMessageBox.critical(self, "Erro", "Ocorreu um erro ao inserir a receita principal.")
+                QtWidgets.QMessageBox.critical(self, "Erro", "Ocorreu um erro ao criar a receita.")
+                conn_BD.close()
                 return
             
-            # Obter o último ID Inserido
-            cmd_sql_last_id = "SELECT LAST_INSERT_ID();"
-            id_receita_gerada = consultaUmValor(conn_BD, cmd_sql_last_id)
-            if id_receita_gerada == -1:
-                 QtWidgets.QMessageBox.critical(self, "Erro", "Deu erro ao obter ID gerado da nova receita.")
-                 return
-            
-            # INSERIR os Medicamentos na tabela de Detalhe
+            # Obter o ID da receita criada
+            id_receita = consultaUmValor(conn_BD, "SELECT LAST_INSERT_ID();")
+            if id_receita == -1:
+                QtWidgets.QMessageBox.critical(self, "Erro", "Erro ao obter o ID da receita.")
+                conn_BD.close()
+                return
+
+            # INSERIR os Medicamentos na tabela receitas_medicamentos
             for med in self.medicamentos:
                 cmd_sql_linha = "INSERT INTO receitas_medicamentos(IdReceita, IdMedicamento, Observacoes, DataInicio, DataFim) VALUES (%s, %s, %s, %s, %s);"
                 res_linha = operacao_DML(conn_BD, cmd_sql_linha, (
-                    id_receita_gerada, 
+                    id_receita,
                     med['id'], 
                     med['observacoes'], 
                     med['data_inicioc'], 
                     med['data_fim']
                 ))
+                if res_linha == -1:
+                    QtWidgets.QMessageBox.critical(self, "Erro", "Ocorreu um erro ao inserir o medicamento.")
+                    conn_BD.close()
+                    return
 
             conn_BD.close()
-            QtWidgets.QMessageBox.information(self, "Sucesso", "Receita gerada e medicamentos inseridos com sucesso!")
+            QtWidgets.QMessageBox.information(self, "Sucesso", f"Receita #{id_receita} criada com sucesso!")
             self.close()
 
         except Exception as e:

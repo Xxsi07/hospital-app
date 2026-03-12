@@ -1,8 +1,9 @@
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore
 from interfaces.formLogin import Ui_MainWindow_Login
 from base_dados import ligacao_BD, listagem_BD
 from form_Medicos import FormMedicos
 from form_Utente import FormUtente
+from form_Administrador import FormAdministrador
 
 class FormLogin(QtWidgets.QMainWindow, Ui_MainWindow_Login):
     def __init__(self):
@@ -13,6 +14,18 @@ class FormLogin(QtWidgets.QMainWindow, Ui_MainWindow_Login):
         self.lineEdit_Passe.setEchoMode(QtWidgets.QLineEdit.Password)
         
         self.pushButton_Entrar.clicked.connect(self.efetuar_login)
+        
+        # Configurar relógio em tempo real
+        self.timer_relogio = QtCore.QTimer(self)
+        self.timer_relogio.timeout.connect(self.atualizar_relogio)
+        self.timer_relogio.start(1000)  # Atualiza a cada 1 segundo
+        self.atualizar_relogio()  # Chama imediatamente para mostrar a hora
+    
+    def atualizar_relogio(self):
+        """Atualiza o LCD com a hora atual"""
+        hora_atual = QtCore.QTime.currentTime().toString("HH:mm")
+        if hasattr(self, 'relogioLCD'):
+            self.relogioLCD.display(hora_atual)
         
     def efetuar_login(self):
         username = self.lineEdit_Utilizador.text()
@@ -37,11 +50,15 @@ class FormLogin(QtWidgets.QMainWindow, Ui_MainWindow_Login):
                 if "medico" in cargo or "médico" in cargo:
                     self.hide() # esconde a janela atual
                     self.janela_medicos = FormMedicos(id_utilizador, nome_utilizador)
-                    self.janela_medicos.show()
+                    self.janela_medicos.showMaximized()
                 elif "utente" in cargo:
                     self.hide() # esconde a janela atual
                     self.janela_utente = FormUtente(id_utilizador, nome_utilizador)
-                    self.janela_utente.show()
+                    self.janela_utente.showMaximized()
+                elif "admin" in cargo or "administrador" in cargo:
+                    self.hide() # esconde a janela atual
+                    self.janela_admin = FormAdministrador(id_utilizador, nome_utilizador)
+                    self.janela_admin.showMaximized()
                 else:
                     QtWidgets.QMessageBox.warning(self, "Aviso", f"Cargo não suportado ({cargo}).")
             else:

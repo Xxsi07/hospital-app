@@ -98,12 +98,19 @@ CREATE TABLE `receitas` (
   `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `IdUtente` INTEGER NOT NULL,
   `IdConsulta` INTEGER NOT NULL,
+  `DataCriacao` DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP),
+  FOREIGN KEY (`IdUtente`) REFERENCES `utilizador` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  FOREIGN KEY (`IdConsulta`) REFERENCES `consultas` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE `receitas_medicamentos` (
+  `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+  `IdReceita` INTEGER NOT NULL,
   `IdMedicamento` INTEGER NOT NULL,
   `Observacoes` VARCHAR(400),
   `DataInicio` DATE NOT NULL,
   `DataFim` DATE,
-  FOREIGN KEY (`IdUtente`) REFERENCES `utilizador` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE,
-  FOREIGN KEY (`IdConsulta`) REFERENCES `consultas` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`IdReceita`) REFERENCES `receitas` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`IdMedicamento`) REFERENCES `medicamentos` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
@@ -119,9 +126,12 @@ CREATE TABLE `mensagens` (
 );
 
 INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(1,'medico');
-INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(3,'utente');
+INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(2,'utente');
 INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(3,'administrador');
 INSERT INTO `utilizador`(`Id`,`Username`,`Password`,`Cargos`,`Nome`,`Email`,`Telefone`,`DataCriacao`) VALUES(1,'jose','jose123',1,'José Rajão','joserajao@gmail.com','945873123','2026-03-06 05:17:44');
 INSERT INTO `utilizador`(`Id`,`Username`,`Password`,`Cargos`,`Nome`,`Email`,`Telefone`,`DataCriacao`) VALUES(2,'daniel','daniel123',2,'Daniel Magalhães','danielmagalhaes@gmail.com','983245876','2026-03-22 17:10:22');
 INSERT INTO `utilizador`(`Id`,`Username`,`Password`,`Cargos`,`Nome`,`Email`,`Telefone`,`DataCriacao`) VALUES(3,'almeida','almeida266',3,'Francisco Almeida','franciscoalmeida@gmail.com','945876324','2026-03-23 13:06:18');
 INSERT INTO `consultas`(`Id`,`Data`,`Hora`,`IdUtente`,`IdMedico`,`TipoConsulta`,`Estado`,`Observacoes`) VALUES(1,'2026-03-27','16:00:00',2,1,'Dermatologia','Marcada','Trazer as analises ao sangue ');
+INSERT INTO `consultas`(`Id`,`Data`,`Hora`,`IdUtente`,`IdMedico`,`TipoConsulta`,`Estado`) VALUES(2,'2026-03-18','09:30:00',2,1,'Rotina','Marcada');
+INSERT INTO `medicamentos`(`Id`,`Nome`,`Descricao`) VALUES(1,'Ben-u-ron','Medicamento para as dores ');
+INSERT INTO `medicamentos`(`Id`,`Nome`,`Descricao`) VALUES(2,'Ibuprofeno','Anti-inflamatório para o alívio da dor');

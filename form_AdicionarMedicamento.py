@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets, QtCore
 from interfaces.formAdicionarMedicamento import Ui_FormAdicionarMedicamento
-from base_dados import ligacao_BD, listagem_BD
+from base_dados import ligacao_BD, listagem_BD, consultaUmValor
 
 class FormAdicionarMedicamento(QtWidgets.QMainWindow, Ui_FormAdicionarMedicamento):
     def __init__(self, form_nova_receita):
@@ -47,6 +47,35 @@ class FormAdicionarMedicamento(QtWidgets.QMainWindow, Ui_FormAdicionarMedicament
         data_inicio = self.dateEdit_DataInicio.date().toString("yyyy-MM-dd")
         data_fim = self.dateEdit_DataFim.date().toString("yyyy-MM-dd")
         observacoes = self.plainTextEdit_Observacoes.toPlainText()
+
+        # Verificar se o medicamento já foi adicionado à receita (lista em memória)
+        lista_medicamentos = self.form_nova_receita.medicamentos
+        for med in lista_medicamentos:
+            med_id = med.get('id')
+            if med_id is not None and id_medicamento is not None:
+                if str(med_id) == str(id_medicamento):
+                    QtWidgets.QMessageBox.warning(self, "Aviso", f"O medicamento '{nome_medicamento}' já foi adicionado a esta receita!")
+                    return
+
+        # Verificar se o medicamento já existe na base de dados para esta consulta
+        id_consulta = self.form_nova_receita.lineEdit_IdConsulta.text()
+        try:
+            conn_BD = ligacao_BD()
+            if conn_BD and conn_BD != -1:
+                cmd_sql = """
+                    SELECT COUNT(*) FROM receitas r
+                    JOIN receitas_medicamentos rm ON r.Id = rm.IdReceita
+                    WHERE r.IdConsulta = %s AND rm.IdMedicamento = %s;
+                """
+                num_registos = consultaUmValor(conn_BD, cmd_sql, (id_consulta, id_medicamento))
+                conn_BD.close()
+                
+                if num_registos and num_registos > 0:
+                    QtWidgets.QMessageBox.warning(self, "Aviso", f"O medicamento '{nome_medicamento}' já existe numa receita desta consulta!")
+                    return
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Erro", f"Erro ao verificar medicamento: {e}")
+            return
 
         # Enviar de volta para a tabela em FormNovaReceita
         self.form_nova_receita.adicionar_medicamento_lista(id_medicamento, nome_medicamento, data_inicio, data_fim, observacoes)

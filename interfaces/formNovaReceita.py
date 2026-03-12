@@ -15,41 +15,68 @@ class Ui_FormNovaReceita(object):
     def setupUi(self, FormNovaReceita):
         FormNovaReceita.setObjectName("FormNovaReceita")
         FormNovaReceita.resize(600, 500)
-        FormNovaReceita.setStyleSheet("QPushButton {\n"
-"    background-color: white;\n"
-"        color: black;\n"
-"        border-radius: 10px;\n"
-"        border: 2px solid #366abf;\n"
-"}\n"
-"\n"
-"QLabel {\n"
-"color: #366abf;\n"
-"}\n"
-"\n"
-"QDateTimeEdit{\n"
-"background-color:white;\n"
-"color: black;\n"
-"border: 2px solid #366abf;\n"
-"}\n"
-"\n"
-"QTableView, QTableWidget{\n"
-" border: 2px solid #366abf; /* Espessura, Estilo (solid/dashed/dotted) e Cor */ \n"
-"    border-radius: 5px;       /* Cantos arredondados */\n"
-"    gridline-color: #dcdcdc;   /* Cor das linhas que separam as celulas */      \n"
-"    background-color: white;\n"
-"    selection-background-color: lightblue; /* Cor da linha quando selecionada */\n"
-"}\n"
-"\n"
-"QLineEdit{\n"
-"background-color:white;\n"
-"color: black;\n"
-"border: 2px solid #366abf;\n"
-"}\n"
-"\n"
-"QWidget{\n"
-"background-color: white;\n"
-"\n"
-"}")
+        FormNovaReceita.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        FormNovaReceita.setStyleSheet("""
+/* === OmniCare Hospital Theme === */
+QWidget {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #E8F4F8, stop:1 #F0F8FF);
+    font-family: 'Segoe UI', Arial;
+}
+
+QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0D7377, stop:1 #14919B);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #14919B, stop:1 #0D7377);
+}
+
+QLabel {
+    color: #0D7377;
+    background: transparent;
+}
+
+QLineEdit {
+    background-color: white;
+    color: #2C3E50;
+    border: 2px solid #B8D4E3;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+QLineEdit:focus {
+    border: 2px solid #14919B;
+}
+
+QTableView, QTableWidget {
+    border: 2px solid #B8D4E3;
+    border-radius: 8px;
+    gridline-color: #E0E0E0;
+    background-color: white;
+    selection-background-color: #B2EBF2;
+}
+
+QHeaderView::section {
+    background-color: #0D7377;
+    color: white;
+    padding: 8px;
+    border: none;
+    font-weight: bold;
+}
+
+QDateTimeEdit {
+    background-color: white;
+    color: #2C3E50;
+    border: 2px solid #B8D4E3;
+    border-radius: 8px;
+    padding: 5px;
+}
+""")
         self.label_Titulo = QtWidgets.QLabel(FormNovaReceita)
         self.label_Titulo.setGeometry(QtCore.QRect(20, 20, 251, 31))
         font = QtGui.QFont()
@@ -138,7 +165,7 @@ class Ui_FormNovaReceita(object):
 
     def retranslateUi(self, FormNovaReceita):
         _translate = QtCore.QCoreApplication.translate
-        FormNovaReceita.setWindowTitle(_translate("FormNovaReceita", "Nova Receita"))
+        FormNovaReceita.setWindowTitle(_translate("FormNovaReceita", "OmniCare - Nova Receita"))
         self.label_Titulo.setText(_translate("FormNovaReceita", "Nova Receita"))
         self.label_IdUtente.setText(_translate("FormNovaReceita", "ID do Utente:"))
         self.label_IdConsulta.setText(_translate("FormNovaReceita", "ID da Consulta:"))

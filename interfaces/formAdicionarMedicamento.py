@@ -15,39 +15,59 @@ class Ui_FormAdicionarMedicamento(object):
     def setupUi(self, FormAdicionarMedicamento):
         FormAdicionarMedicamento.setObjectName("FormAdicionarMedicamento")
         FormAdicionarMedicamento.resize(400, 400)
-        FormAdicionarMedicamento.setStyleSheet("QPushButton {\n"
-"    background-color: white;\n"
-"        color: black;\n"
-"        border-radius: 10px;\n"
-"        border: 2px solid #366abf;\n"
-"}\n"
-"\n"
-"QLabel {\n"
-"color: #366abf;\n"
-"}\n"
-"\n"
-"QDateEdit{\n"
-"background-color:white;\n"
-"color: black;\n"
-"border: 2px solid #366abf;\n"
-"}\n"
-"\n"
-"QComboBox{\n"
-"background-color:white;\n"
-"color: black;\n"
-"border: 2px solid #366abf;\n"
-"}\n"
-"\n"
-"QPlainTextEdit{\n"
-"background-color:white;\n"
-"color: black;\n"
-"border: 2px solid #366abf;\n"
-"}\n"
-"\n"
-"QWidget{\n"
-"background-color: white;\n"
-"\n"
-"}")
+        FormAdicionarMedicamento.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        FormAdicionarMedicamento.setStyleSheet("""
+/* === OmniCare Hospital Theme === */
+QWidget {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #E8F4F8, stop:1 #F0F8FF);
+    font-family: 'Segoe UI', Arial;
+}
+
+QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #0D7377, stop:1 #14919B);
+    color: white;
+    border-radius: 12px;
+    border: none;
+    padding: 8px 16px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #14919B, stop:1 #0D7377);
+}
+
+QLabel {
+    color: #0D7377;
+    background: transparent;
+}
+
+QDateEdit {
+    background-color: white;
+    color: #2C3E50;
+    border: 2px solid #B8D4E3;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+QComboBox {
+    background-color: white;
+    color: #2C3E50;
+    border: 2px solid #B8D4E3;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+QPlainTextEdit {
+    background-color: white;
+    color: #2C3E50;
+    border: 2px solid #B8D4E3;
+    border-radius: 8px;
+}
+
+QComboBox:focus, QDateEdit:focus, QPlainTextEdit:focus {
+    border: 2px solid #14919B;
+}
+""")
         self.label_Medicamento = QtWidgets.QLabel(FormAdicionarMedicamento)
         self.label_Medicamento.setGeometry(QtCore.QRect(30, 30, 131, 16))
         font = QtGui.QFont()
@@ -100,7 +120,7 @@ class Ui_FormAdicionarMedicamento(object):
 
     def retranslateUi(self, FormAdicionarMedicamento):
         _translate = QtCore.QCoreApplication.translate
-        FormAdicionarMedicamento.setWindowTitle(_translate("FormAdicionarMedicamento", "Adicionar Medicamento"))
+        FormAdicionarMedicamento.setWindowTitle(_translate("FormAdicionarMedicamento", "OmniCare - Adicionar Medicamento"))
         self.label_Medicamento.setText(_translate("FormAdicionarMedicamento", "Medicamento:"))
         self.label_DataInicio.setText(_translate("FormAdicionarMedicamento", "Data Início:"))
         self.label_DataFim.setText(_translate("FormAdicionarMedicamento", "Data Fim:"))
