@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_MainWindow_Login(object):
@@ -8,7 +9,7 @@ class Ui_MainWindow_Login(object):
         MainWindow_Login.setObjectName("MainWindow_Login")
         MainWindow_Login.setEnabled(True)
         MainWindow_Login.resize(800, 600)
-        MainWindow_Login.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        MainWindow_Login.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         
         self.centralwidget = QtWidgets.QWidget(MainWindow_Login)
         self.centralwidget.setStyleSheet("""

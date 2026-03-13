@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_MainWindow_Administrador(object):
     def setupUi(self, MainWindow_Administrador):
         MainWindow_Administrador.setObjectName("MainWindow_Administrador")
         MainWindow_Administrador.resize(1000, 700)
-        MainWindow_Administrador.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        MainWindow_Administrador.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         
         self.centralwidget = QtWidgets.QWidget(MainWindow_Administrador)
         self.centralwidget.setStyleSheet("""

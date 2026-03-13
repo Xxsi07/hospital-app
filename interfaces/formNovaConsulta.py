@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_Dialog_NovaConsulta(object):
     def setupUi(self, Dialog_NovaConsulta):
         Dialog_NovaConsulta.setObjectName("Dialog_NovaConsulta")
         Dialog_NovaConsulta.resize(400, 350)
-        Dialog_NovaConsulta.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        Dialog_NovaConsulta.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         Dialog_NovaConsulta.setStyleSheet("""
 /* === OmniCare Hospital Theme === */
 QDialog {

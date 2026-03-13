@@ -9,13 +9,14 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_FormNovaReceita(object):
     def setupUi(self, FormNovaReceita):
         FormNovaReceita.setObjectName("FormNovaReceita")
         FormNovaReceita.resize(600, 500)
-        FormNovaReceita.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        FormNovaReceita.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         FormNovaReceita.setStyleSheet("""
 /* === OmniCare Hospital Theme === */
 QWidget {

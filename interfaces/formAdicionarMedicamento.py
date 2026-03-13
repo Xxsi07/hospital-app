@@ -9,13 +9,14 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_FormAdicionarMedicamento(object):
     def setupUi(self, FormAdicionarMedicamento):
         FormAdicionarMedicamento.setObjectName("FormAdicionarMedicamento")
         FormAdicionarMedicamento.resize(400, 400)
-        FormAdicionarMedicamento.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        FormAdicionarMedicamento.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         FormAdicionarMedicamento.setStyleSheet("""
 /* === OmniCare Hospital Theme === */
 QWidget {

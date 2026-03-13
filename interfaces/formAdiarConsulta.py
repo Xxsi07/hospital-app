@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_FormAdiarConsulta(object):
     def setupUi(self, FormAdiarConsulta):
         FormAdiarConsulta.setObjectName("FormAdiarConsulta")
         FormAdiarConsulta.resize(393, 278)
-        FormAdiarConsulta.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        FormAdiarConsulta.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         FormAdiarConsulta.setStyleSheet("""
 /* === OmniCare Hospital Theme === */
 QWidget {

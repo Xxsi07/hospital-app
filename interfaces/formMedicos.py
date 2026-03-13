@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_MainWindow_Medicos(object):
     def setupUi(self, MainWindow_Medicos):
         MainWindow_Medicos.setObjectName("MainWindow_Medicos")
         MainWindow_Medicos.resize(1000, 700)
-        MainWindow_Medicos.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        MainWindow_Medicos.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         
         self.centralwidget = QtWidgets.QWidget(MainWindow_Medicos)
         self.centralwidget.setStyleSheet("""

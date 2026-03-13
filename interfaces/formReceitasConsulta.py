@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_Form_ReceitasConsulta(object):
     def setupUi(self, Form_ReceitasConsulta):
         Form_ReceitasConsulta.setObjectName("Form_ReceitasConsulta")
         Form_ReceitasConsulta.resize(700, 500)
-        Form_ReceitasConsulta.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        Form_ReceitasConsulta.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         Form_ReceitasConsulta.setStyleSheet("""
 /* === OmniCare Hospital Theme === */
 QWidget {

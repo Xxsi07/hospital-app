@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import os
 
 
 class Ui_Form_DetalheUtilizador(object):
     def setupUi(self, Form_DetalheUtilizador):
         Form_DetalheUtilizador.setObjectName("Form_DetalheUtilizador")
         Form_DetalheUtilizador.resize(450, 400)
-        Form_DetalheUtilizador.setWindowIcon(QtGui.QIcon("UI/imagens/logo.png"))
+        Form_DetalheUtilizador.setWindowIcon(QtGui.QIcon(os.path.join(os.path.dirname(__file__), "imagens", "logo.png")))
         Form_DetalheUtilizador.setStyleSheet("""
 /* === OmniCare Hospital Theme === */
 QWidget {
