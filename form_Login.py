@@ -9,9 +9,17 @@ class FormLogin(QtWidgets.QMainWindow, Ui_MainWindow_Login):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.lineEdit_Utilizador.setMinimumHeight(28)
+        self.lineEdit_Utilizador.setMaximumHeight(28)
+        self.lineEdit_Passe.setMinimumHeight(28)
+        self.lineEdit_Passe.setMaximumHeight(28)
         
         # Ocultar o texto da password digitada
         self.lineEdit_Passe.setEchoMode(QtWidgets.QLineEdit.Password)
+        
+        # Ligar Enter (Return) nos campos de texto ao login
+        self.lineEdit_Utilizador.returnPressed.connect(self.efetuar_login)
+        self.lineEdit_Passe.returnPressed.connect(self.efetuar_login)
         
         self.pushButton_Entrar.clicked.connect(self.efetuar_login)
         

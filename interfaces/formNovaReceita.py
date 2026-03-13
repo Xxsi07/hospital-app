@@ -46,7 +46,8 @@ QLineEdit {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 5px;
+    padding: 3px 8px;
+    min-height: 26px;
 }
 
 QLineEdit:focus {
@@ -94,7 +95,7 @@ QDateTimeEdit {
         self.label_IdUtente.setFont(font)
         self.label_IdUtente.setObjectName("label_IdUtente")
         self.lineEdit_IdUtente = QtWidgets.QLineEdit(FormNovaReceita)
-        self.lineEdit_IdUtente.setGeometry(QtCore.QRect(130, 80, 113, 20))
+        self.lineEdit_IdUtente.setGeometry(QtCore.QRect(130, 80, 113, 28))
         self.lineEdit_IdUtente.setReadOnly(True)
         self.lineEdit_IdUtente.setObjectName("lineEdit_IdUtente")
         self.label_IdConsulta = QtWidgets.QLabel(FormNovaReceita)
@@ -105,7 +106,7 @@ QDateTimeEdit {
         self.label_IdConsulta.setFont(font)
         self.label_IdConsulta.setObjectName("label_IdConsulta")
         self.lineEdit_IdConsulta = QtWidgets.QLineEdit(FormNovaReceita)
-        self.lineEdit_IdConsulta.setGeometry(QtCore.QRect(440, 80, 113, 20))
+        self.lineEdit_IdConsulta.setGeometry(QtCore.QRect(440, 80, 113, 28))
         self.lineEdit_IdConsulta.setReadOnly(True)
         self.lineEdit_IdConsulta.setObjectName("lineEdit_IdConsulta")
         self.tableWidget_Medicamentos = QtWidgets.QTableWidget(FormNovaReceita)

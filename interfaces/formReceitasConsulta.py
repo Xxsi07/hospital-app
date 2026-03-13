@@ -84,6 +84,16 @@ QHeaderView::section {
         font.setWeight(75)
         self.pushButton_Eliminar.setFont(font)
         self.pushButton_Eliminar.setObjectName("pushButton_Eliminar")
+
+        self.pushButton_GerarPDF = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_GerarPDF.setGeometry(QtCore.QRect(590, 125, 90, 35))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_GerarPDF.setFont(font)
+        self.pushButton_GerarPDF.setObjectName("pushButton_GerarPDF")
         
         self.pushButton_Voltar = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_Voltar.setGeometry(QtCore.QRect(560, 450, 120, 35))
@@ -106,4 +116,5 @@ QHeaderView::section {
         self.label_Titulo.setText(_translate("Form_ReceitasConsulta", "Receitas da Consulta"))
         self.label_InfoConsulta.setText(_translate("Form_ReceitasConsulta", "Consulta:"))
         self.pushButton_Eliminar.setText(_translate("Form_ReceitasConsulta", "Eliminar"))
+        self.pushButton_GerarPDF.setText(_translate("Form_ReceitasConsulta", "Gerar PDF"))
         self.pushButton_Voltar.setText(_translate("Form_ReceitasConsulta", "Voltar"))

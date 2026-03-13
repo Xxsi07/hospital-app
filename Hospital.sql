@@ -21,15 +21,15 @@ CREATE TABLE `utilizador` (
   FOREIGN KEY (`Cargos`) REFERENCES `cargos` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
-CREATE TABLE `stock` (
+'''CREATE TABLE `stock` (
   `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `Nome` VARCHAR(100) UNIQUE NOT NULL,
   `Quantidade` INTEGER NOT NULL DEFAULT 0,
   `QuantidadeMinima` INTEGER NOT NULL DEFAULT 5,
   `Descricao` VARCHAR(200)
-);
+);'''
 
-CREATE TABLE `reportados_stock` (
+'''CREATE TABLE `reportados_stock` (
   `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `IdStock` INTEGER NOT NULL,
   `IdReporter` INTEGER,
@@ -39,9 +39,9 @@ CREATE TABLE `reportados_stock` (
   `Estado` VARCHAR(30) NOT NULL DEFAULT 'Pendente',
   FOREIGN KEY (`IdStock`) REFERENCES `stock` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`IdReporter`) REFERENCES `utilizador` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
-);
+);'''
 
-CREATE TABLE `avarias` (
+'''CREATE TABLE `avarias` (
   `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `IdReporter` INTEGER NOT NULL,
   `DataReporte` DATETIME NOT NULL DEFAULT (CURRENT_TIMESTAMP),
@@ -51,7 +51,7 @@ CREATE TABLE `avarias` (
   `IdTecnico` INTEGER,
   FOREIGN KEY (`IdReporter`) REFERENCES `utilizador` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   FOREIGN KEY (`IdTecnico`) REFERENCES `utilizador` (`Id`) ON DELETE SET NULL ON UPDATE CASCADE
-);
+);'''
 
 CREATE TABLE `consultas` (
   `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -66,7 +66,7 @@ CREATE TABLE `consultas` (
   FOREIGN KEY (`IdMedico`) REFERENCES `utilizador` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
-CREATE TABLE `cirurgias` (
+'''CREATE TABLE `cirurgias` (
   `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `Data` DATE NOT NULL,
   `Hora` TIME NOT NULL,
@@ -78,15 +78,15 @@ CREATE TABLE `cirurgias` (
   `Observacoes` VARCHAR(500),
   FOREIGN KEY (`IdUtente`) REFERENCES `utilizador` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   FOREIGN KEY (`IdCirurgiaoPrincipal`) REFERENCES `utilizador` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE
-);
+);'''
 
-CREATE TABLE `assistentes_cirurgia` (
+'''CREATE TABLE `assistentes_cirurgia` (
   `IdCirurgia` INTEGER NOT NULL,
   `IdMedico` INTEGER NOT NULL,
   PRIMARY KEY (`IdCirurgia`, `IdMedico`),
   FOREIGN KEY (`IdCirurgia`) REFERENCES `cirurgias` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`IdMedico`) REFERENCES `utilizador` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-);
+);'''
 
 CREATE TABLE `medicamentos` (
   `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -114,7 +114,7 @@ CREATE TABLE `receitas_medicamentos` (
   FOREIGN KEY (`IdMedicamento`) REFERENCES `medicamentos` (`Id`) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
-CREATE TABLE `mensagens` (
+'''CREATE TABLE `mensagens` (
   `Id` INTEGER PRIMARY KEY AUTO_INCREMENT,
   `IdRemetente` INTEGER NOT NULL,
   `IdDestinatario` INTEGER NOT NULL,
@@ -123,7 +123,7 @@ CREATE TABLE `mensagens` (
   `Lida` BOOLEAN NOT NULL DEFAULT false,
   FOREIGN KEY (`IdRemetente`) REFERENCES `utilizador` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (`IdDestinatario`) REFERENCES `utilizador` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE
-);
+);'''
 
 INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(1,'medico');
 INSERT INTO `cargos`(`Id`,`Designacao`) VALUES(2,'utente');

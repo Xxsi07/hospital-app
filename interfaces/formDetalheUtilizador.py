@@ -38,7 +38,8 @@ QLineEdit {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 8px;
+    padding: 3px 8px;
+    min-height: 26px;
 }
 
 QLineEdit:focus {
@@ -50,7 +51,8 @@ QComboBox {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 5px;
+    padding: 2px 8px;
+    min-height: 26px;
 }
 
 QComboBox:focus {
@@ -81,7 +83,7 @@ QComboBox:focus {
         self.label_Id.setObjectName("label_Id")
         
         self.lineEdit_Id = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_Id.setGeometry(QtCore.QRect(130, 60, 100, 25))
+        self.lineEdit_Id.setGeometry(QtCore.QRect(130, 60, 100, 30))
         self.lineEdit_Id.setReadOnly(True)
         self.lineEdit_Id.setObjectName("lineEdit_Id")
         
@@ -95,7 +97,7 @@ QComboBox:focus {
         self.label_Username.setObjectName("label_Username")
         
         self.lineEdit_Username = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_Username.setGeometry(QtCore.QRect(130, 100, 290, 25))
+        self.lineEdit_Username.setGeometry(QtCore.QRect(130, 100, 290, 30))
         self.lineEdit_Username.setObjectName("lineEdit_Username")
         
         # Password
@@ -108,7 +110,7 @@ QComboBox:focus {
         self.label_Password.setObjectName("label_Password")
         
         self.lineEdit_Password = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_Password.setGeometry(QtCore.QRect(130, 140, 290, 25))
+        self.lineEdit_Password.setGeometry(QtCore.QRect(130, 140, 290, 30))
         self.lineEdit_Password.setObjectName("lineEdit_Password")
         
         # Nome
@@ -121,7 +123,7 @@ QComboBox:focus {
         self.label_Nome.setObjectName("label_Nome")
         
         self.lineEdit_Nome = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_Nome.setGeometry(QtCore.QRect(130, 180, 290, 25))
+        self.lineEdit_Nome.setGeometry(QtCore.QRect(130, 180, 290, 30))
         self.lineEdit_Nome.setObjectName("lineEdit_Nome")
         
         # Email
@@ -134,7 +136,7 @@ QComboBox:focus {
         self.label_Email.setObjectName("label_Email")
         
         self.lineEdit_Email = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_Email.setGeometry(QtCore.QRect(130, 220, 290, 25))
+        self.lineEdit_Email.setGeometry(QtCore.QRect(130, 220, 290, 30))
         self.lineEdit_Email.setObjectName("lineEdit_Email")
         
         # Telefone
@@ -147,7 +149,7 @@ QComboBox:focus {
         self.label_Telefone.setObjectName("label_Telefone")
         
         self.lineEdit_Telefone = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_Telefone.setGeometry(QtCore.QRect(130, 260, 290, 25))
+        self.lineEdit_Telefone.setGeometry(QtCore.QRect(130, 260, 290, 30))
         self.lineEdit_Telefone.setObjectName("lineEdit_Telefone")
         
         # Cargo
@@ -160,7 +162,7 @@ QComboBox:focus {
         self.label_Cargo.setObjectName("label_Cargo")
         
         self.comboBox_Cargo = QtWidgets.QComboBox(self.centralwidget)
-        self.comboBox_Cargo.setGeometry(QtCore.QRect(130, 300, 200, 25))
+        self.comboBox_Cargo.setGeometry(QtCore.QRect(130, 300, 200, 30))
         self.comboBox_Cargo.setObjectName("comboBox_Cargo")
         
         # Botões

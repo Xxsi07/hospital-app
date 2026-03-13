@@ -46,7 +46,8 @@ QDateEdit {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 5px;
+    padding: 2px 6px;
+    min-height: 26px;
 }
 
 QComboBox {
@@ -86,7 +87,7 @@ QComboBox:focus, QDateEdit:focus, QPlainTextEdit:focus {
         self.label_DataInicio.setFont(font)
         self.label_DataInicio.setObjectName("label_DataInicio")
         self.dateEdit_DataInicio = QtWidgets.QDateEdit(FormAdicionarMedicamento)
-        self.dateEdit_DataInicio.setGeometry(QtCore.QRect(30, 140, 151, 22))
+        self.dateEdit_DataInicio.setGeometry(QtCore.QRect(30, 140, 151, 28))
         self.dateEdit_DataInicio.setObjectName("dateEdit_DataInicio")
         self.label_DataFim = QtWidgets.QLabel(FormAdicionarMedicamento)
         self.label_DataFim.setGeometry(QtCore.QRect(210, 120, 100, 16))
@@ -96,7 +97,7 @@ QComboBox:focus, QDateEdit:focus, QPlainTextEdit:focus {
         self.label_DataFim.setFont(font)
         self.label_DataFim.setObjectName("label_DataFim")
         self.dateEdit_DataFim = QtWidgets.QDateEdit(FormAdicionarMedicamento)
-        self.dateEdit_DataFim.setGeometry(QtCore.QRect(210, 140, 151, 22))
+        self.dateEdit_DataFim.setGeometry(QtCore.QRect(210, 140, 151, 28))
         self.dateEdit_DataFim.setObjectName("dateEdit_DataFim")
         self.label_Observacoes = QtWidgets.QLabel(FormAdicionarMedicamento)
         self.label_Observacoes.setGeometry(QtCore.QRect(30, 190, 121, 16))

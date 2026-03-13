@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtGui
 from interfaces.formReceitasConsulta import Ui_Form_ReceitasConsulta
 from base_dados import ligacao_BD, listagem_BD, operacao_DML
+import webbrowser
 
 
 class FormReceitasConsulta(QtWidgets.QMainWindow, Ui_Form_ReceitasConsulta):
@@ -15,6 +16,7 @@ class FormReceitasConsulta(QtWidgets.QMainWindow, Ui_Form_ReceitasConsulta):
         
         self.pushButton_Voltar.clicked.connect(self.voltar)
         self.pushButton_Eliminar.clicked.connect(self.eliminar_medicamento)
+        self.pushButton_GerarPDF.clicked.connect(self.gerar_pdf_receitas_consulta)
         
         self.carregar_receitas()
     
@@ -88,6 +90,13 @@ class FormReceitasConsulta(QtWidgets.QMainWindow, Ui_Form_ReceitasConsulta):
                     conn_BD.close()
             except Exception as e:
                 QtWidgets.QMessageBox.critical(self, "Erro", f"Erro ao eliminar medicamento: {e}")
+
+    def gerar_pdf_receitas_consulta(self):
+        try:
+            url = f"http://localhost/Receitas/gerarPDF_receitas_consulta.php?id_consulta={self.id_consulta}"
+            webbrowser.open(url)
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Erro", f"Erro ao abrir a página de PDF: {e}")
     
     def voltar(self):
         self.close()

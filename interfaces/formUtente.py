@@ -129,19 +129,23 @@ QHeaderView::section {
         self.pushButton_Receitas.setObjectName("pushButton_Receitas")
         self.buttonsLayout.addWidget(self.pushButton_Receitas)
         
+        # Layout horizontal para Consultas de Hoje e Todas as Consultas
+        self.consultasLayout = QtWidgets.QHBoxLayout()
+        self.consultasLayout.setSpacing(10)
+        
         # Botão Consultas de Hoje
         self.pushButton_ConsultasHoje = QtWidgets.QPushButton()
         self.pushButton_ConsultasHoje.setFont(font)
-        self.pushButton_ConsultasHoje.setMinimumWidth(180)
         self.pushButton_ConsultasHoje.setObjectName("pushButton_ConsultasHoje")
-        self.buttonsLayout.addWidget(self.pushButton_ConsultasHoje)
+        self.consultasLayout.addWidget(self.pushButton_ConsultasHoje)
         
         # Botão Todas as Consultas
         self.pushButton_TodasConsultas = QtWidgets.QPushButton()
         self.pushButton_TodasConsultas.setFont(font)
-        self.pushButton_TodasConsultas.setMinimumWidth(180)
         self.pushButton_TodasConsultas.setObjectName("pushButton_TodasConsultas")
-        self.buttonsLayout.addWidget(self.pushButton_TodasConsultas)
+        self.consultasLayout.addWidget(self.pushButton_TodasConsultas)
+        
+        self.buttonsLayout.addLayout(self.consultasLayout)
         
         self.buttonsLayout.addStretch()
         

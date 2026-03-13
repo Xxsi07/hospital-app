@@ -46,8 +46,8 @@ QLineEdit {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 10px;
-    min-height: 35px;
+    padding: 6px 10px;
+    min-height: 26px;
 }
 
 QLineEdit:focus {

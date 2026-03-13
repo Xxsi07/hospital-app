@@ -38,7 +38,8 @@ QLineEdit {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 5px;
+    padding: 3px 8px;
+    min-height: 26px;
 }
 
 QDateTimeEdit {
@@ -46,7 +47,8 @@ QDateTimeEdit {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 5px;
+    padding: 1px 8px;
+    min-height: 30px;
 }
 
 QLineEdit:focus, QDateTimeEdit:focus {
@@ -75,7 +77,7 @@ QLineEdit:focus, QDateTimeEdit:focus {
         self.label_IdConsulta.setObjectName("label_IdConsulta")
         
         self.lineEdit_IdConsulta = QtWidgets.QLineEdit(self.centralwidget)
-        self.lineEdit_IdConsulta.setGeometry(QtCore.QRect(160, 48, 100, 22))
+        self.lineEdit_IdConsulta.setGeometry(QtCore.QRect(160, 48, 100, 28))
         self.lineEdit_IdConsulta.setReadOnly(True)
         self.lineEdit_IdConsulta.setObjectName("lineEdit_IdConsulta")
         
@@ -88,7 +90,7 @@ QLineEdit:focus, QDateTimeEdit:focus {
         self.label_DataAtual.setObjectName("label_DataAtual")
         
         self.dateTimeEdit_DataAtual = QtWidgets.QDateTimeEdit(self.centralwidget)
-        self.dateTimeEdit_DataAtual.setGeometry(QtCore.QRect(30, 110, 194, 22))
+        self.dateTimeEdit_DataAtual.setGeometry(QtCore.QRect(30, 110, 194, 32))
         self.dateTimeEdit_DataAtual.setReadOnly(True)
         self.dateTimeEdit_DataAtual.setObjectName("dateTimeEdit_DataAtual")
         
@@ -101,11 +103,11 @@ QLineEdit:focus, QDateTimeEdit:focus {
         self.label_DataAdiada.setObjectName("label_DataAdiada")
         
         self.dateTimeEdit_DataAdiada = QtWidgets.QDateTimeEdit(self.centralwidget)
-        self.dateTimeEdit_DataAdiada.setGeometry(QtCore.QRect(30, 170, 194, 22))
+        self.dateTimeEdit_DataAdiada.setGeometry(QtCore.QRect(30, 170, 194, 32))
         self.dateTimeEdit_DataAdiada.setObjectName("dateTimeEdit_DataAdiada")
         
         self.pushButton_Aplicar = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_Aplicar.setGeometry(QtCore.QRect(300, 230, 75, 30))
+        self.pushButton_Aplicar.setGeometry(QtCore.QRect(288, 230, 87, 32))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)
@@ -114,7 +116,7 @@ QLineEdit:focus, QDateTimeEdit:focus {
         self.pushButton_Aplicar.setObjectName("pushButton_Aplicar")
         
         self.pushButton_Cancelar = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_Cancelar.setGeometry(QtCore.QRect(210, 230, 75, 30))
+        self.pushButton_Cancelar.setGeometry(QtCore.QRect(190, 230, 92, 32))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(10)

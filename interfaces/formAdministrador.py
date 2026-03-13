@@ -45,8 +45,8 @@ QLineEdit {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 8px;
-    min-height: 25px;
+    padding: 3px 8px;
+    min-height: 28px;
 }
 
 QLineEdit:focus {
@@ -82,8 +82,8 @@ QComboBox {
     color: #2C3E50;
     border: 2px solid #B8D4E3;
     border-radius: 8px;
-    padding: 5px;
-    min-height: 25px;
+    padding: 2px 8px;
+    min-height: 28px;
 }
 
 QComboBox:focus {
@@ -160,6 +160,12 @@ QComboBox:focus {
         self.pushButton_Limpar.setMinimumWidth(100)
         self.pushButton_Limpar.setObjectName("pushButton_Limpar")
         self.filterLayout.addWidget(self.pushButton_Limpar)
+
+        self.pushButton_Medicamentos = QtWidgets.QPushButton()
+        self.pushButton_Medicamentos.setFont(font)
+        self.pushButton_Medicamentos.setMinimumWidth(140)
+        self.pushButton_Medicamentos.setObjectName("pushButton_Medicamentos")
+        self.filterLayout.addWidget(self.pushButton_Medicamentos)
         
         self.filterLayout.addStretch()
         
@@ -199,6 +205,20 @@ QComboBox:focus {
         self.pushButton_Eliminar.setMinimumWidth(150)
         self.pushButton_Eliminar.setObjectName("pushButton_Eliminar")
         self.buttonsLayout.addWidget(self.pushButton_Eliminar)
+
+        self.pushButton_EliminarConsultas = QtWidgets.QPushButton()
+        self.pushButton_EliminarConsultas.setFont(font)
+        self.pushButton_EliminarConsultas.setMinimumWidth(150)
+        self.pushButton_EliminarConsultas.setStyleSheet("""
+            QPushButton {
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #C0392B, stop:1 #E74C3C);
+            }
+            QPushButton:hover {
+                background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #E74C3C, stop:1 #C0392B);
+            }
+        """)
+        self.pushButton_EliminarConsultas.setObjectName("pushButton_EliminarConsultas")
+        self.buttonsLayout.addWidget(self.pushButton_EliminarConsultas)
         
         self.buttonsLayout.addStretch()
         
@@ -235,7 +255,9 @@ QComboBox:focus {
         self.label_Utilizadores.setText(_translate("MainWindow_Administrador", "Gestão de Utilizadores:"))
         self.pushButton_Filtrar.setText(_translate("MainWindow_Administrador", "Filtrar"))
         self.pushButton_Limpar.setText(_translate("MainWindow_Administrador", "Limpar"))
+        self.pushButton_Medicamentos.setText(_translate("MainWindow_Administrador", "Medicamentos"))
         self.pushButton_Novo.setText(_translate("MainWindow_Administrador", "Novo"))
         self.pushButton_Editar.setText(_translate("MainWindow_Administrador", "Editar"))
         self.pushButton_Eliminar.setText(_translate("MainWindow_Administrador", "Eliminar"))
-        self.pushButton_Sair.setText(_translate("MainWindow_Administrador", "Sair"))
+        self.pushButton_EliminarConsultas.setText(_translate("MainWindow_Administrador", "Eliminar Consultas"))
+        self.pushButton_Sair.setText(_translate("MainWindow_Administrador", "Log Out"))
